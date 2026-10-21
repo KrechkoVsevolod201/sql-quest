@@ -1,0 +1,59 @@
+.generated-picker-row{display:flex;align-items:center;gap:13px;border-top:1px solid #292b35;padding-top:9px;margin-top:8px}
+.generated-picker-row[hidden]{display:none}
+.generated-exercise-link{border-color:#443b57!important;background:#272330!important;color:#c7b7e9!important}
+.generated-exercise-link>span{margin-right:7px;color:#c29eff}
+.challenge-generator{margin:0 0 14px;border:1px solid #393149;border-radius:11px;background:linear-gradient(105deg,#211e29,#1a1b23);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.challenge-generator:hover,.challenge-generator[open]{border-color:#685583;box-shadow:0 7px 25px #0002}
+.challenge-generator>summary{min-height:66px;display:flex;align-items:center;gap:13px;padding:12px 16px;list-style:none;cursor:pointer;user-select:none}
+.challenge-generator>summary::-webkit-details-marker{display:none}
+.generator-summary-icon{width:38px;height:38px;display:grid;place-items:center;flex:0 0 auto;border:1px solid #514266;border-radius:10px;background:#342a43;color:#d2b4ff;font-size:20px;transition:transform .25s,background .25s}
+.challenge-generator[open] .generator-summary-icon{transform:rotate(18deg);background:#443452}
+.challenge-generator>summary>span:nth-child(2){display:grid;gap:4px;min-width:0}
+.challenge-generator>summary b{font-size:14px;color:#eee7fa}
+.challenge-generator>summary small{font-size:11px;color:#9895a2;line-height:1.45}
+.generator-chevron{margin-left:auto;color:#b89cfa;font-size:20px;transition:transform .2s}
+.challenge-generator[open] .generator-chevron{transform:rotate(180deg)}
+.generator-content{display:grid;gap:11px;padding:1px 16px 15px;border-top:1px solid #302d38;animation:generator-reveal .22s ease-out both}
+@keyframes generator-reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.generator-row{display:flex;align-items:center;gap:13px;min-height:39px}
+.generator-row>span,.generator-row>label{min-width:115px;color:#9693a0;font-size:10px;font-weight:800;letter-spacing:.8px}
+.generator-mode-switch{display:flex;gap:5px;padding:3px;border:1px solid #35323e;border-radius:8px;background:#17181f}
+.generator-mode{min-height:32px;padding:0 13px;border:0;border-radius:5px;background:transparent;color:#aaa8b2;font-size:11px;transition:background .18s,color .18s,transform .18s}
+.generator-mode:hover{color:#e6d9ff}
+.generator-mode.active{background:#382d49;color:#e1ceff;box-shadow:0 2px 8px #0003}
+.generator-row .mode-select{min-width:190px}
+#generator-topic{max-width:320px}
+.topic-generator-options{flex-wrap:wrap}
+.topic-generator-options[hidden]{display:none}
+.generator-topic-select{max-width:320px}
+#generator-custom-topic{height:38px;min-width:200px;flex:1;padding:0 11px;border:1px solid #393b46;border-radius:7px;background:#13151b;color:#eeeef4;font:13px var(--font);outline:none}
+#generator-custom-topic:focus{border-color:#866dc0;box-shadow:0 0 0 3px #9a7beb19}
+#generator-custom-topic[hidden]{display:none}
+.generator-footer{display:flex;align-items:center;gap:13px;padding-top:3px}
+.generator-footer .primary-button{min-width:205px}
+#generator-status{color:#9694a0;font-size:11px;line-height:1.5}
+#generator-status.is-error{color:#ffab9b}
+#generate-study-task.is-loading{animation:generator-button-pulse 1s ease-in-out infinite alternate}
+@keyframes generator-button-pulse{from{filter:brightness(.9)}to{filter:brightness(1.2)}}
+.module-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+  .generated-picker-row{align-items:flex-start;flex-direction:column;gap:5px}
+  .challenge-generator>summary{padding:10px 11px;gap:9px}
+  .challenge-generator>summary b{font-size:12px}
+  .challenge-generator>summary small{font-size:10px}
+  .generator-summary-icon{width:33px;height:33px}
+  .generator-content{padding:8px 11px 12px}
+  .generator-row{align-items:flex-start;flex-direction:column;gap:6px}
+  .generator-row>span,.generator-row>label{min-width:0}
+  .generator-mode-switch{width:100%}
+  .generator-mode{flex:1;padding:0 7px;font-size:10px}
+  .generator-row .mode-select{width:100%;min-width:0}
+  .generator-footer{align-items:stretch;flex-direction:column;gap:8px}
+  .generator-footer .primary-button{width:100%}
+  #generator-status{min-height:18px}
+  .module-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .challenge-generator,.generator-summary-icon,.generator-chevron,.generator-mode,.generator-content,#generate-study-task{transition:none;animation:none}
+}

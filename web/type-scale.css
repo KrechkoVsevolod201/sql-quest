@@ -1,0 +1,152 @@
+/* Bump small UI text consistently while preserving the layout proportions. */
+body{font-size:18px}
+.side-label,.eyebrow,.tiny-label{font-size:12px}
+.brand{font-size:22px}
+.brand small{font-size:10px}
+.nav-item{font-size:15px}
+.side-level b{font-size:14px}
+.side-level small,.xp-caption,.sidebar-footer{font-size:12px}
+.breadcrumb,.local-badge{font-size:13px}
+.hero-row h1,.page-intro h1{font-size:38px}
+.hero-sub,.page-intro p{font-size:16px}
+.streak-card b{font-size:15px}
+.streak-card small{font-size:12px}
+.stat-top{font-size:12px}
+.stat-card>strong{font-size:33px}
+.stat-card>small{font-size:12px}
+.section-heading h2{font-size:23px}
+.text-button{font-size:13px}
+.daily-tag{font-size:11px}
+.difficulty{font-size:12px}
+.daily-card h3{font-size:23px}
+.daily-card p{font-size:14px}
+.reward,.primary-button,.secondary-button{font-size:13px}
+.module-top b,.progress-module b{font-size:14px}
+.module-card p,.progress-module small{font-size:12px}
+.module-bottom,.module-count{font-size:11px}
+.mode-card b{font-size:13px}
+.mode-card small{font-size:11px}
+.picker-label{font-size:11px}
+.module-chips .lesson-module{font-size:13px}
+.exercise-chips .exercise-link{font-size:12px}
+.challenge-title h2,.task-header h2{font-size:24px}
+.task-record{font-size:11px}
+.challenge-controls>label{font-size:10px}
+.challenge-controls .mode-select,.mode-select{font-size:13px}
+.challenge-controls .timer-display,.timer-display{font-size:15px}
+.task-prompt b,.editor-heading b,.schema-heading b{font-size:14px}
+.task-prompt p{font-size:14px}
+.workbench-heading b,.database-heading b{font-size:15px}
+.workbench-heading small,.database-heading small{font-size:12px}
+.query-workbench .code-editor textarea{font-size:15px;line-height:25px}
+.query-workbench .line-numbers{font-size:13px;line-height:25px}
+.editor-hint{font-size:13px}
+.query-workbench .secondary-button,.query-workbench .primary-button{font-size:13px}
+.relationship-title{font-size:10px}
+.relation-end b{font-size:12px}
+.relation-end small{font-size:11px}
+.relation-cardinality{font-size:10px}
+.erd-table>header>b{font-size:13px}
+.erd-table>header>small{font-size:10px}
+.erd-column>b{font-size:11px}
+.erd-column>small{font-size:10px}
+.schema-legend{font-size:11px}
+.result-heading{font-size:14px}
+.result-table{font-size:13px}
+.result-note,.error-message{font-size:13px}
+.lab-banner b{font-size:14px}
+.lab-banner p{font-size:13px}
+.lab-tab,.ai-tab{font-size:13px}
+.lab-code{font-size:15px;line-height:25px}
+.lab-footer{font-size:13px}
+.nerd-stat{font-size:12px}
+.nerd-stat b{font-size:13px}
+.ai-review-button{font-size:13px}
+.ai-review-button span{font-size:11px}
+.settings-field>span,.settings-help ol{font-size:14px}
+.settings-field input{font-size:15px}
+.settings-field small,.settings-feedback{font-size:12px}
+.settings-check{font-size:13px}
+.history-row{font-size:13px}
+.history-row b{font-size:14px}
+.app-footer{font-size:12px}
+
+/* AI review is modal and independent from the currently selected tab or scroll position. */
+.ai-response-overlay{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:24px;background:#090a0ec9;backdrop-filter:blur(8px);animation:ai-overlay-in .18s ease-out both}
+.ai-response-overlay[hidden]{display:none}
+.ai-response-dialog{width:min(760px,100%);max-height:min(86vh,900px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #4b3d60;border-radius:16px;background:#191a22;box-shadow:0 24px 90px #0009;animation:ai-dialog-in .24s cubic-bezier(.2,.8,.2,1) both}
+.ai-response-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 22px;border-bottom:1px solid #30313b;background:linear-gradient(110deg,#272132,#1b1c24)}
+.ai-response-header>div{display:flex;align-items:center;gap:13px}
+.ai-response-mark{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#392d4d;color:#d3b4ff;font-size:22px}
+.ai-response-header h2{margin:0;color:#f1eaff;font-size:20px}
+.ai-response-header small{display:block;margin-top:4px;color:#a09baa;font-size:12px}
+.ai-response-close{width:38px;height:38px;border:1px solid #41414b;border-radius:9px;background:#252630;color:#d1d1da;font-size:25px;line-height:1;transition:background .18s,transform .18s}
+.ai-response-close:hover{transform:rotate(90deg);background:#3a3047}
+.ai-response-status{padding:10px 22px;border-bottom:1px solid #292b35;color:#b6a0e3;font-size:12px}
+.ai-response-content{overflow:auto;padding:20px 22px 24px;scrollbar-color:#514860 transparent;scrollbar-width:thin}
+.ai-score-card{display:flex;align-items:center;gap:17px;margin-bottom:16px;padding:15px;border:1px solid #393144;border-radius:10px;background:#211e29}
+.ai-score-number{min-width:78px;text-align:center;color:#d4bbff}
+.ai-score-number b{font-size:34px;letter-spacing:-1px}
+.ai-score-number span{color:#928c9e;font-size:13px}
+.ai-score-detail{flex:1;display:grid;gap:8px}
+.ai-score-detail>b{font-size:13px}
+.ai-score-detail>small{color:#9996a2;font-size:11px}
+.ai-score-track{height:8px;overflow:hidden;border-radius:8px;background:#35313c}
+.ai-score-track i{width:var(--score-width);height:100%;display:block;border-radius:inherit;background:linear-gradient(90deg,#9878e5,#78d5a8);animation:score-fill .65s ease-out both}
+.ai-verdict,.ai-review-section,.ai-next-hint{margin-top:12px;padding:15px 16px;border:1px solid #30323d;border-radius:9px;background:#1e2028}
+.ai-verdict h3,.ai-review-section h3{margin:0 0 9px;color:#d8c6ff;font-size:14px}
+.ai-verdict p,.ai-review-section li,.ai-next-hint p{margin:0;color:#d0cfd7;font-size:14px;line-height:1.75;white-space:pre-wrap}
+.ai-review-section ul{display:grid;gap:7px;margin:0;padding-left:21px}
+.ai-review-section li{padding-left:3px}
+.ai-strengths{border-color:#31483d;background:#1c2521}
+.ai-strengths h3{color:#8fdbb2}
+.ai-suggestions{border-color:#4b3d32;background:#27221e}
+.ai-suggestions h3{color:#f0bd83}
+.ai-next-hint{display:flex;gap:12px;border-color:#49405a;background:#24212c}
+.ai-next-hint>span{color:#c9a9ff;font-size:19px}
+.ai-next-hint b{color:#d8c6ff;font-size:13px}
+.ai-next-hint p{margin-top:6px}
+.ai-response-error{padding:17px;border:1px solid #61413f;border-radius:9px;background:#2a201f}
+.ai-response-error>b{color:#ffb0a1;font-size:15px}
+.ai-response-error p{margin:9px 0;color:#eee0df;font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.ai-response-error small{color:#b7a4a1;font-size:11px;line-height:1.5}
+.ai-empty-answer{padding:15px;border:1px solid #41404b;border-radius:8px;color:#c8c4d0;font-size:14px;line-height:1.7}
+.ai-loading{display:flex;align-items:center;gap:7px;min-height:65px}
+.ai-loading i{width:10px;height:10px;border-radius:50%;background:#bd9aff;animation:ai-pulse .9s ease-in-out infinite alternate}
+.ai-loading i:nth-child(2){animation-delay:.2s}
+.ai-loading i:nth-child(3){animation-delay:.4s}
+body.ai-dialog-open{overflow:hidden}
+@keyframes ai-overlay-in{from{opacity:0}to{opacity:1}}
+@keyframes ai-dialog-in{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes ai-pulse{from{opacity:.35;transform:translateY(0)}to{opacity:1;transform:translateY(-5px)}}
+@keyframes score-fill{from{width:0}to{width:var(--score-width)}}
+
+@media(max-width:760px){
+  body{font-size:17px}
+  .hero-row h1,.page-intro h1{font-size:29px}
+  .hero-sub,.page-intro p{font-size:14px}
+  .section-heading h2{font-size:20px}
+  .stat-card>strong{font-size:27px}
+  .daily-card p,.module-card p{font-size:13px}
+  .challenge-title h2,.task-header h2{font-size:22px}
+  .task-prompt p{font-size:13px}
+  .query-workbench .code-editor textarea{font-size:14px;line-height:23px}
+  .relation-end b{font-size:11px}
+  .relation-end small{font-size:10px}
+  .erd-column>b{font-size:10px}
+  .ai-response-overlay{padding:10px}
+  .ai-response-dialog{max-height:92vh;border-radius:12px}
+  .ai-response-header{padding:14px}
+  .ai-response-header h2{font-size:17px}
+  .ai-response-mark{width:36px;height:36px;font-size:18px}
+  .ai-response-status{padding:9px 14px;font-size:11px}
+  .ai-response-content{padding:14px}
+  .ai-score-card{gap:10px;padding:11px}
+  .ai-score-number{min-width:65px}
+  .ai-score-number b{font-size:29px}
+  .ai-verdict p,.ai-review-section li,.ai-next-hint p{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-response-overlay,.ai-response-dialog,.ai-score-track i,.ai-loading i{animation:none}
+  .ai-response-close{transition:none}
+}

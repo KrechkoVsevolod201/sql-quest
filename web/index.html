@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11131a">
+  <title>SQL Quest — прокачай свои запросы</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/readable.css">
+  <link rel="stylesheet" href="/learn-workspace.css">
+  <link rel="stylesheet" href="/type-scale.css">
+  <link rel="stylesheet" href="/challenge-generator.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="brand-icon">⌘</span><span>query<span class="brand-accent">.quest</span><small>SQL LEARNING ARCADE</small></span></a>
+      <div class="side-label">ПРОСТРАНСТВО</div>
+      <nav class="side-nav">
+        <button class="nav-item active" data-page="home"><span>▦</span> Главная</button>
+        <button class="nav-item" data-page="learn"><span>⌘</span> Учиться</button>
+        <button class="nav-item" data-page="lab"><span>⌁</span> SQL-лаборатория <i class="new-dot"></i></button>
+        <button class="nav-item" data-page="stats"><span>◷</span> Моя статистика</button>
+        <button class="nav-item" data-page="settings"><span>⚙</span> Настройки AI</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="tiny-label">ТВОЙ УРОВЕНЬ</div><div class="side-level"><span class="level-gem">✦</span><div><b id="side-level">Уровень 1</b><small id="side-xp">0 XP всего</small></div></div><div class="xp-track"><i id="side-progress"></i></div><small class="xp-caption"><span id="side-progress-text">0 / 100 XP</span><span>✦</span></small></div>
+      <div class="sidebar-footer"><span class="online-dot"></span> локальный профиль <span class="version">v1.0</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb"><span>Пространство</span><b>/</b><strong id="crumb">Главная</strong></div><div class="top-actions"><span class="local-badge"><i></i> Всё сохраняется локально</span><div class="avatar">S</div></div></header>
+      <section class="page active" id="page-home">
+        <div class="hero-row"><div><div class="eyebrow"><span class="spark">✦</span> ТВОЯ SQL-АРКАДА</div><h1>Привет, исследователь<span class="wave">✦</span></h1><p class="hero-sub">Ещё один запрос — и ты на шаг ближе к мастерству.</p></div><div class="streak-card"><div class="streak-icon">♨</div><div><b id="streak">0 дней</b><small>текущая серия</small></div></div></div>
+        <div class="stats-grid">
+          <article class="stat-card xp-card"><div class="stat-top"><span>ОПЫТ</span><span class="stat-icon">✦</span></div><strong id="xp-total">0 <small>XP</small></strong><div class="mini-progress"><i id="main-progress"></i></div><small id="xp-next">Ещё 100 XP до уровня 2</small></article>
+          <article class="stat-card"><div class="stat-top"><span>ЗАДАНИЯ</span><span class="stat-icon violet">⌘</span></div><strong><span id="completed-count">0</span><small> / <span id="exercise-count">12</span></small></strong><small>уникальных решено</small></article>
+          <article class="stat-card"><div class="stat-top"><span>ПОПЫТКИ</span><span class="stat-icon blue">↗</span></div><strong id="attempt-count">0</strong><small>запросов отправлено</small></article>
+          <article class="stat-card"><div class="stat-top"><span>SQL-СКОРОСТЬ</span><span class="stat-icon green">◷</span></div><strong><span id="avg-time">0.000</span><small> ms</small></strong><small>среднее время запроса</small></article>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">НАЧНИ СЕГОДНЯ</div><h2>Ежедневный квест <span class="date-pill" id="date-pill"></span></h2></div><button class="text-button" data-goto="learn">Все задания <span>→</span></button></div>
+        <article class="daily-card"><div class="daily-orbit">✦</div><div class="daily-content"><div class="daily-meta"><span class="daily-tag">✦ КВЕСТ ДНЯ</span><span class="difficulty">◆◆◇ · СРЕДНИЙ</span></div><h3 id="daily-title">Загружаем задание…</h3><p id="daily-prompt"></p><div class="daily-footer"><span class="reward">✦ +40 XP</span><button class="primary-button" data-start-daily>Взять квест <span>→</span></button></div></div><div class="daily-art"><div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-core">⌘</div><span class="art-star star-one">✦</span><span class="art-star star-two">✧</span><span class="art-star star-three">·</span></div></article>
+        <div class="section-heading modules-heading"><div><div class="eyebrow">ПРОГРЕСС ПУТИ</div><h2>Учебные модули</h2></div><button class="text-button" data-goto="learn">Открыть каталог <span>→</span></button></div>
+        <div class="module-grid" id="module-grid"></div>
+        <div class="section-heading mode-heading"><div><div class="eyebrow">ВЫБИРАЙ СВОЙ ВЫЗОВ</div><h2>Режимы игры</h2></div></div>
+        <div class="mode-grid"><button class="mode-card" data-mode="practice"><span class="mode-symbol purple">⌘</span><span><b>Спокойная практика</b><small>Решай в своём темпе</small></span><span class="mode-arrow">→</span></button><button class="mode-card" data-mode="timed"><span class="mode-symbol orange">◷</span><span><b>На время</b><small>Уложись в 2 минуты</small></span><span class="mode-arrow">→</span></button><button class="mode-card" data-mode="fastest"><span class="mode-symbol green">ϟ</span><span><b>Самое быстрое решение</b><small>Побей свой рекорд</small></span><span class="mode-arrow">→</span></button><button class="mode-card" data-mode="optimal"><span class="mode-symbol blue">⌁</span><span><b>Оптимальный запрос</b><small>Точность и скорость</small></span><span class="mode-arrow">→</span></button></div>
+      </section>
+
+      <section class="page" id="page-learn">
+        <div class="page-intro"><div class="eyebrow">ТРЕНИРОВОЧНАЯ ПЛОЩАДКА</div><h1>Учиться SQL</h1><p>Выбери тему, изучи таблицы и напиши запрос.</p></div>
+        <div class="learn-layout"><aside class="lesson-sidebar"><div class="eyebrow">МОДУЛИ</div><div id="module-list"></div><div class="eyebrow exercise-label">ЗАДАНИЯ</div><div id="exercise-list"></div></aside><div class="lesson-main"><div id="empty-lesson" class="empty-state"><div>⌘</div><h3>Выбери задание</h3><p>Твои SQL-приключения начинаются здесь.</p><button class="primary-button" data-module="select">Начать с основ →</button></div><div id="lesson-content" hidden><div class="task-header"><div><div class="daily-meta"><span class="difficulty" id="task-difficulty"></span><span class="task-topic" id="task-topic"></span></div><h2 id="task-title"></h2></div><select id="mode-select" class="mode-select"><option value="practice">Спокойная практика</option><option value="timed">⏱ На время · 2 мин</option><option value="fastest">ϟ Самое быстрое</option><option value="optimal">⌁ Оптимальный запрос</option></select></div><div class="task-prompt"><span class="prompt-icon">✦</span><div><b>Твоя задача</b><p id="task-prompt"></p></div></div><div class="editor-heading"><div><b>Твой запрос</b><span class="editor-language">SQLITE</span></div><div class="timer-display" id="timer-display">00:00</div></div><div class="code-editor"><div class="line-numbers">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</div><textarea id="sql-editor" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="SELECT ...&#10;FROM ...&#10;WHERE ...;"></textarea><button class="editor-hint" id="hint-button">✧ Подсказка</button></div><div class="editor-actions"><button class="secondary-button" id="run-button">▶ Выполнить запрос <kbd>Ctrl ↵</kbd></button><button class="primary-button" id="check-button">Проверить решение <span>→</span></button></div><div class="result-panel" id="result-panel" hidden></div><div class="schema-panel"><div class="schema-heading"><b>Схема базы данных</b><select id="database-select" aria-label="Учебная база данных"></select></div><div id="schema-tables" class="schema-tables"></div></div></div></div></div>
+      </section>
+
+      <section class="page" id="page-lab">
+        <div class="page-intro"><div class="eyebrow">СВОБОДНОЕ ИССЛЕДОВАНИЕ</div><h1>SQL-лаборатория <span class="lab-emoji">⌁</span></h1><p>Создай свою базу, запусти запрос и изучи nerd-статы.</p></div>
+        <div class="lab-banner"><span class="lab-banner-icon">✦</span><div><b>Твоя песочница — твои правила</b><p>Лаборатория изолирована от учебных баз. SQL-скрипт и таблицы сохраняются локально между запусками.</p></div><span class="safe-label"><i></i> SANDBOX</span></div>
+        <div class="lab-columns"><div class="lab-editor-card"><div class="lab-tabs"><button class="lab-tab active" data-lab-tab="setup">01 · Создать таблицы</button><button class="lab-tab" data-lab-tab="query">02 · Запрос</button><button class="ai-tab" id="generate-db">✦ ИИ-конструктор</button></div><textarea id="lab-editor" class="lab-code" spellcheck="false"></textarea><div class="lab-footer"><span id="lab-status">Готов к экспериментам</span><button class="primary-button" id="lab-run">▶ Запустить скрипт</button></div><div class="result-panel lab-result" id="lab-result" hidden></div></div><aside class="lab-side"><div class="side-panel"><div class="schema-heading"><b>Таблицы лаборатории</b><button class="icon-button" id="refresh-lab">↻</button></div><div id="lab-schema" class="schema-tables"><p class="muted">Создай таблицы, чтобы начать.</p></div></div><div class="side-panel nerd-panel"><div class="eyebrow">NERD STATS</div><div class="nerd-stat"><span>Таблиц запущено</span><b id="lab-tables-count">0</b></div><div class="nerd-stat"><span>Среднее время SQL</span><b><span id="lab-avg">0.000</span> ms</b></div><div class="nerd-stat"><span>Режим работы</span><b>SQLite · local</b></div></div><button class="ai-review-button" id="ai-review">✦ Попросить ИИ разобрать запрос <span id="ai-status"></span></button></aside></div>
+        <div class="ai-result-card" id="ai-result" hidden></div>
+      </section>
+
+      <section class="page" id="page-stats"><div class="page-intro"><div class="eyebrow">ТВОЯ АНАЛИТИКА</div><h1>Моя статистика</h1><p>Каждый запрос — измеримый прогресс.</p></div><div class="stats-grid stats-page-grid"><article class="stat-card"><div class="stat-top"><span>УРОВЕНЬ</span><span class="stat-icon">✦</span></div><strong id="stats-level">1</strong><small>продолжай набирать опыт</small></article><article class="stat-card"><div class="stat-top"><span>СЕРИЯ</span><span class="stat-icon orange">♨</span></div><strong id="stats-streak">0</strong><small>дней подряд в игре</small></article><article class="stat-card"><div class="stat-top"><span>ЛАБОРАТОРИЯ</span><span class="stat-icon blue">⌁</span></div><strong id="stats-lab">0</strong><small>запусков SQL</small></article></div><div class="section-heading"><div><div class="eyebrow">ИСТОРИЯ</div><h2>Недавние решения</h2></div></div><div class="history-card" id="history-list"><p class="muted">Реши первое задание — оно появится здесь.</p></div><div class="section-heading"><div><div class="eyebrow">МАСТЕРСТВО</div><h2>Прогресс модулей</h2></div></div><div class="progress-modules" id="progress-modules"></div></section>
+      <section class="page" id="page-settings">
+        <div class="page-intro"><div class="eyebrow">ЛОКАЛЬНАЯ МОДЕЛЬ</div><h1>Настройки AI</h1><p>Подключи LM Studio, чтобы генерировать квесты и получать разбор SQL.</p></div>
+        <div class="settings-layout">
+          <article class="settings-card">
+            <div class="settings-card-heading"><div class="settings-icon">✦</div><div><h2>LM Studio</h2><p>OpenAI-compatible API</p></div><span class="connection-badge" id="lm-connection-badge">Не подключено</span></div>
+            <div class="settings-fields">
+              <label class="settings-field"><span>Адрес API</span><input id="lm-base-url" type="url" value="http://localhost:1234/v1" placeholder="http://localhost:1234/v1"><small>В LM Studio включи Developer → Start Server. Обычно используется порт 1234.</small></label>
+              <label class="settings-field"><span>Модель</span><input id="lm-model" type="text" list="lm-model-list" placeholder="Проверь сервер, чтобы загрузить список"><datalist id="lm-model-list"></datalist><small>Выбери загруженную модель или оставь пустым для автоматического выбора первой доступной.</small></label>
+              <label class="settings-field"><span>API-ключ <em>необязательно</em></span><input id="lm-api-key" type="password" autocomplete="new-password" placeholder="Не задан"><small>Оставь пустым, если проверка ключа на сервере LM Studio отключена. Сохранённый ключ не отображается.</small></label>
+              <label class="settings-check"><input id="lm-clear-key" type="checkbox"><span>Удалить сохранённый API-ключ</span></label>
+            </div>
+            <div class="settings-actions"><button class="secondary-button" id="lm-test-button">Проверить соединение</button><button class="primary-button" id="lm-save-button">Сохранить настройки</button></div>
+            <div class="settings-feedback" id="lm-feedback" aria-live="polite">Пока не проверяли соединение.</div>
+          </article>
+          <aside class="settings-help"><div class="eyebrow">БЫСТРЫЙ СТАРТ</div><h3>Запусти LM Studio</h3><ol><li>Открой вкладку <b>Developer</b>.</li><li>Выбери и загрузи instruct-модель.</li><li>Нажми <b>Start Server</b> и проверь адрес API.</li><li>Нажми здесь «Проверить соединение», выбери модель и сохрани настройки.</li></ol><div class="local-storage-note"><span>⌂</span><p>Адрес, модель и API-ключ хранятся локально в базе SQL Quest. Ключ не передаётся в браузерных ответах.</p></div></aside>
+        </div>
+      </section>
+      <footer class="app-footer">Сделано для тех, кто любит хороший запрос <span>⌘</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <div class="ai-response-overlay" id="ai-response-overlay" hidden>
+    <section class="ai-response-dialog" role="dialog" aria-modal="true" aria-labelledby="ai-response-title" tabindex="-1">
+      <header class="ai-response-header"><div><span class="ai-response-mark">✦</span><div><h2 id="ai-response-title">Разбор от ИИ</h2><small>Ответ LM Studio</small></div></div><button class="ai-response-close" id="ai-response-close" aria-label="Закрыть">×</button></header>
+      <div class="ai-response-status" id="ai-response-status" aria-live="polite">Готовим разбор запроса…</div>
+      <div class="ai-response-content" id="ai-response-content"><div class="ai-loading"><i></i><i></i><i></i></div></div>
+    </section>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
